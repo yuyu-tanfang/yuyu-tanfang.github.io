@@ -1,0 +1,1761 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云屿探房 - 北京房产经纪人 | 新房二手房租赁</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1a365d;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            font-size: 1.8rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #1a365d;
+        }
+
+        .hero {
+            padding: 180px 0 120px;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            margin-top: 2rem;
+            font-size: 1.3rem;
+        }
+
+        .contact-info span {
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #c5a059;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            background: #b08d4f;
+        }
+
+        .btn-primary {
+            background: #c5a059;
+        }
+
+        .btn-primary:hover {
+            background: #b08d4f;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1a365d;
+            font-weight: bold;
+        }
+
+        .features {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .features .section-title {
+            color: #333;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: #1a365d;
+            font-size: 1.5rem;
+        }
+
+        .about {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: #1a365d;
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .contact {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .contact .section-title {
+            color: #333;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #1a365d;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background: #1a365d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #2c5282;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            color: #1a365d;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .project-content p {
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-price {
+            color: #c5a059;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .project-tag {
+            background: #f7fafc;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            color: #1a365d;
+        }
+
+        .area-btn {
+            padding: 10px 20px;
+            background: white;
+            border: 2px solid #c5a059;
+            color: #1a365d;
+            border-radius: 25px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .area-btn:hover {
+            background: #c5a059;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .area-btn.active {
+            background: #c5a059;
+            color: white;
+            box-shadow: 0 4px 12px rgba(197, 160, 89, 0.4);
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card[style*="display: none"] {
+            display: none !important;
+        }
+
+        .floating-phone {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #c5a059;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            z-index: 999;
+            cursor: pointer;
+            transition: transform 0.3s;
+            text-decoration: none;
+        }
+
+        .floating-phone:hover {
+            transform: scale(1.05);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+            border-top: 4px solid #c5a059;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            color: #1a365d;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .service-card ul {
+            list-style: none;
+            text-align: left;
+            padding: 0;
+        }
+
+        .service-card li {
+            padding: 8px 0;
+            color: #666;
+            border-bottom: 1px solid #eee;
+        }
+
+        .service-card li:before {
+            content: "✓";
+            color: #c5a059;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <span class="logo-icon">🏠</span>
+                    云屿探房
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#services">业务范围</a></li>
+                    <li><a href="#projects">新房项目</a></li>
+                    <li><a href="#about">关于我</a></li>
+                    <li><a href="#contact">联系方式</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>李青云</h1>
+            <p class="subtitle">北京资深房产经纪人 · 新房·二手房·租赁·中高端业务</p>
+            <p>专注北京房产市场，为您提供专业、可靠的置业服务</p>
+            <div class="contact-info">
+                <span>📞 15601359305</span>
+                <span>💬 微信同号</span>
+            </div>
+            <a href="tel:15601359305" class="btn btn-primary">立即咨询</a>
+        </div>
+    </section>
+
+    <section id="services" class="features">
+        <div class="container">
+            <h2 class="section-title">业务范围</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏢</div>
+                    <h3>新房销售</h3>
+                    <ul>
+                        <li>北京各大新楼盘代理</li>
+                        <li>独家优惠与折扣</li>
+                        <li>专业楼盘分析</li>
+                        <li>全流程购房指导</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏠</div>
+                    <h3>二手房交易</h3>
+                    <ul>
+                        <li>海量房源信息</li>
+                        <li>真实房源保障</li>
+                        <li>专业价格评估</li>
+                        <li>协助过户交割</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏘️</div>
+                    <h3>高端物业</h3>
+                    <ul>
+                        <li>豪宅别墅专属服务</li>
+                        <li>商业地产投资</li>
+                        <li>海外置业咨询</li>
+                        <li>资产配置建议</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔑</div>
+                    <h3>租赁业务</h3>
+                    <ul>
+                        <li>优质租赁房源</li>
+                        <li>租房合同规范</li>
+                        <li>租金市场分析</li>
+                        <li>后期维护服务</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="features">
+        <div class="container">
+            <h2 class="section-title">精选新房项目</h2>
+            <p style="text-align: center; margin-bottom: 2rem; color: #666;">北京各区优质新房房源，总有一款适合您</p>
+            
+            <!-- 区域选择器 -->
+            <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 3rem;">
+                <button class="area-btn active" onclick="filterProjects('all')">全部</button>
+                <button class="area-btn" onclick="filterProjects('dongcheng')">东城</button>
+                <button class="area-btn" onclick="filterProjects('xicheng')">西城</button>
+                <button class="area-btn" onclick="filterProjects('fengtai')">丰台</button>
+                <button class="area-btn" onclick="filterProjects('chaoyang')">朝阳</button>
+                <button class="area-btn" onclick="filterProjects('shunyi')">顺义</button>
+                <button class="area-btn" onclick="filterProjects('changping')">昌平</button>
+                <button class="area-btn" onclick="filterProjects('mentougou')">门头沟</button>
+                <button class="area-btn" onclick="filterProjects('shijingshan')">石景山</button>
+                <button class="area-btn" onclick="filterProjects('daxing')">大兴</button>
+                <button class="area-btn" onclick="filterProjects('tongzhou')">通州</button>
+            </div>
+
+            <div class="features-grid" id="projects-grid">
+                <!-- 东城区项目 -->
+                <div class="project-card" data-area="dongcheng">
+                    <div class="project-image">🏛️</div>
+                    <div class="project-content">
+                        <h3>霞公府</h3>
+                        <p>📍 东城区·东长安街·二环内</p>
+                        <p>📐 410㎡ 平层</p>
+                        <p>🏷️ 7100万 | 70年产权住宅</p>
+                        <p>📚 校尉小学、166中学、史家、景山</p>
+                        <p>🏢 紫金置业 | 世邦魏理仕</p>
+                        <div class="project-tags">
+                            <span class="project-tag">二环内</span>
+                            <span class="project-tag">城市核心</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="dongcheng">
+                    <div class="project-image">🏢</div>
+                    <div class="project-content">
+                        <h3>丽苑太和</h3>
+                        <p>📍 东城区·金鱼胡同·二环内</p>
+                        <p>📐 60-239㎡ 开间-三居</p>
+                        <p>🏷️ 800-4000万 | 70年商品房</p>
+                        <p>📚 校尉小学、166中学、史家、景山</p>
+                        <p>🏢 富华置地 | 富华行</p>
+                        <div class="project-tags">
+                            <span class="project-tag">二环内</span>
+                            <span class="project-tag">精装</span>
+                            <span class="project-tag">2024年10月交房</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="dongcheng">
+                    <div class="project-image">🏯</div>
+                    <div class="project-content">
+                        <h3>金舆东华</h3>
+                        <p>📍 东城区·金宝街·二环内</p>
+                        <p>📐 217-443㎡ 2-4居</p>
+                        <p>🏷️ 3200-9000万 | 70年商品房</p>
+                        <p>📚 史家小学、府学胡同小学、景山</p>
+                        <p>🏢 北京昱置 | 高力国际</p>
+                        <div class="project-tags">
+                            <span class="project-tag">二环内</span>
+                            <span class="project-tag">现房</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="dongcheng">
+                    <div class="project-image">🏪</div>
+                    <div class="project-content">
+                        <h3>王府77</h3>
+                        <p>📍 东城区·王府井·二环内</p>
+                        <p>📐 64-1800㎡ 1-8居</p>
+                        <p>🏷️ 900万-4亿 | 50年产权</p>
+                        <p>📚 史家小学、府学胡同小学、景山</p>
+                        <p>🏢 北京天润同泰 | 高力国际</p>
+                        <div class="project-tags">
+                            <span class="project-tag">二环内</span>
+                            <span class="project-tag">现房</span>
+                            <span class="project-tag">精装</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="dongcheng">
+                    <div class="project-image">⛩️</div>
+                    <div class="project-content">
+                        <h3>天坛府</h3>
+                        <p>📍 东城区·二环</p>
+                        <p>📐 128-280㎡ 平层</p>
+                        <p>🏷️ 1750-4000万</p>
+                        <p>📚 一师附小、汇文中学南校区</p>
+                        <p>🏢 北京城建 | 城承物业</p>
+                        <div class="project-tags">
+                            <span class="project-tag">二环</span>
+                            <span class="project-tag">精装</span>
+                            <span class="project-tag">2026.1月交房</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 西城区项目 -->
+                <div class="project-card" data-area="xicheng">
+                    <div class="project-image">🏰</div>
+                    <div class="project-content">
+                        <h3>国安府</h3>
+                        <p>📍 西城区·宣武门·二环内</p>
+                        <p>📐 200-630㎡ 3-5居室</p>
+                        <p>🏷️ 3000万-1.1亿 | 70年产权</p>
+                        <p>📚 实验一小、实验二小、北京小学</p>
+                        <p>🏢 中信 | 国安</p>
+                        <div class="project-tags">
+                            <span class="project-tag">二环内</span>
+                            <span class="project-tag">顶豪</span>
+                            <span class="project-tag">价格倒挂</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="xicheng">
+                    <div class="project-image">🏨</div>
+                    <div class="project-content">
+                        <h3>玺源台</h3>
+                        <p>📍 西城区·广安门北京西站·二环内</p>
+                        <p>📐 60-135㎡ 1-3居</p>
+                        <p>🏷️ 1000-2100万 | 70年产权</p>
+                        <p>📚 北京小学、四中、八中</p>
+                        <p>🏢 泰乐 | 均豪</p>
+                        <div class="project-tags">
+                            <span class="project-tag">二环内</span>
+                            <span class="project-tag">低总价</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="xicheng">
+                    <div class="project-image">🏛️</div>
+                    <div class="project-content">
+                        <h3>京华玖序</h3>
+                        <p>📍 西城区·菜市口地铁·二环内</p>
+                        <p>📐 203-280㎡ 4居室</p>
+                        <p>🏷️ 3600-5000万 | 70年产权</p>
+                        <p>📚 北京八中附小、宣武师范附小</p>
+                        <p>🏢 中海 | 中海物业</p>
+                        <div class="project-tags">
+                            <span class="project-tag">二环内</span>
+                            <span class="project-tag">精装</span>
+                            <span class="project-tag">户型方正</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="xicheng">
+                    <div class="project-image">🌄</div>
+                    <div class="project-content">
+                        <h3>中海富华里</h3>
+                        <p>📍 海淀区·西北五环外</p>
+                        <p>📐 80-140㎡ 3-4居</p>
+                        <p>🏷️ 499-1300万</p>
+                        <p>📚 中关村三小、清华附中</p>
+                        <p>🏢 中海 | 中海物业</p>
+                        <div class="project-tags">
+                            <span class="project-tag">现房</span>
+                            <span class="project-tag">平层+下跃</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="xicheng">
+                    <div class="project-image">🏔️</div>
+                    <div class="project-content">
+                        <h3>香山樾</h3>
+                        <p>📍 海淀区·西五环</p>
+                        <p>📐 184-273㎡ 4居</p>
+                        <p>🏷️ 2300-4400万 | 2023地王</p>
+                        <p>📚 海淀外国语、凯文学校</p>
+                        <p>🏢 越秀+城建 | 越秀服务</p>
+                        <div class="project-tags">
+                            <span class="project-tag">低密</span>
+                            <span class="project-tag">高端</span>
+                            <span class="project-tag">2026年4月交房</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="xicheng">
+                    <div class="project-image">🍂</div>
+                    <div class="project-content">
+                        <h3>印香山</h3>
+                        <p>📍 海淀区·西五环</p>
+                        <p>📐 220-248㎡ 4居</p>
+                        <p>🏷️ 2450-3200万</p>
+                        <p>📚 海淀外国语、凯文学校</p>
+                        <p>🏢 天恒+广安 | 天恒物业</p>
+                        <div class="project-tags">
+                            <span class="project-tag">低密</span>
+                            <span class="project-tag">离山近</span>
+                            <span class="project-tag">2026年4月交房</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="xicheng">
+                    <div class="project-image">🌿</div>
+                    <div class="project-content">
+                        <h3>翠湖玖章</h3>
+                        <p>📍 海淀区·西北五环·温泉科技园</p>
+                        <p>📐 140-165㎡ 洋房 4居</p>
+                        <p>🏷️ 850-1450万</p>
+                        <p>📚 第二实验幼儿园、中关村一小</p>
+                        <p>🏢 中海 | 港中旅</p>
+                        <div class="project-tags">
+                            <span class="project-tag">低密</span>
+                            <span class="project-tag">精装洋房</span>
+                            <span class="project-tag">单价8.5万</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="xicheng">
+                    <div class="project-image">🎓</div>
+                    <div class="project-content">
+                        <h3>海淀南路12号</h3>
+                        <p>📍 海淀区·中关村万柳·西四环内</p>
+                        <p>📐 56-122㎡ 2-3居</p>
+                        <p>🏷️ 720-1500万</p>
+                        <p>📚 八一小学中学、中关村一二三小</p>
+                        <p>🏢 京投 | 龙湖</p>
+                        <div class="project-tags">
+                            <span class="project-tag">近20年唯一新房</span>
+                            <span class="project-tag">学区</span>
+                            <span class="project-tag">毛坯</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="xicheng">
+                    <div class="project-image">🏬</div>
+                    <div class="project-content">
+                        <h3>保利嘉华天珺</h3>
+                        <p>📍 海淀区·西北五环·永丰产业基地</p>
+                        <p>📐 99-172㎡ 4居</p>
+                        <p>🏷️ 710-1600万</p>
+                        <p>📚 中关村三小科技园分校、清华附中</p>
+                        <p>🏢 保利+北京建工 | 保利物业</p>
+                        <div class="project-tags">
+                            <span class="project-tag">央企</span>
+                            <span class="project-tag">全精装</span>
+                            <span class="project-tag">2027年5月交房</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="xicheng">
+                    <div class="project-image">🌳</div>
+                    <div class="project-content">
+                        <h3>和樾玉鳴</h3>
+                        <p>📍 海淀区·西北五环</p>
+                        <p>📐 139-267㎡ 4居</p>
+                        <p>🏷️ 1500-3300万</p>
+                        <p>📚 上地学区、101学校、清华附中</p>
+                        <p>🏢 绿城+越秀 | 绿城</p>
+                        <div class="project-tags">
+                            <span class="project-tag">绿城品质</span>
+                            <span class="project-tag">强学区</span>
+                            <span class="project-tag">价格倒挂</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="xicheng">
+                    <div class="project-image">💎</div>
+                    <div class="project-content">
+                        <h3>华润臻澐</h3>
+                        <p>📍 海淀区·清河·西北五环</p>
+                        <p>📐 134-290㎡ 3-5居</p>
+                        <p>🏷️ 1500-4500万</p>
+                        <p>📚 海淀实验二小、清华附小</p>
+                        <p>🏢 华润+招商+中铁 | 招商</p>
+                        <div class="project-tags">
+                            <span class="project-tag">三央企联袂</span>
+                            <span class="project-tag">山水庭院</span>
+                            <span class="project-tag">艺术会所</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="xicheng">
+                    <div class="project-image">🌊</div>
+                    <div class="project-content">
+                        <h3>建发海晏</h3>
+                        <p>📍 海淀区·清河·西北五环</p>
+                        <p>📐 183-340㎡ 4-5居</p>
+                        <p>🏷️ 2450-7000万</p>
+                        <p>📚 海淀第二实验小学、十一学校</p>
+                        <p>🏢 建发 | 建发</p>
+                        <div class="project-tags">
+                            <span class="project-tag">三山五园</span>
+                            <span class="project-tag">滨水龙脉</span>
+                            <span class="project-tag">2027年9月交房</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 丰台区项目 -->
+                <div class="project-card" data-area="fengtai">
+                    <div class="project-image">🏛️</div>
+                    <div class="project-content">
+                        <h3>懋源璟岳</h3>
+                        <p>📍 丰台区·西南三环内</p>
+                        <p>📐 联排460㎡ | 合院590-620㎡</p>
+                        <p>🏷️ 6300万-1.5亿</p>
+                        <p>📚 纪家庙小学、芳草地、北京十二中</p>
+                        <p>🏢 懋源地产 | 懋源鸿禧物业</p>
+                        <div class="project-tags">
+                            <span class="project-tag">外销</span>
+                            <span class="project-tag">准现房</span>
+                            <span class="project-tag">联排现房</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="fengtai">
+                    <div class="project-image">🏯</div>
+                    <div class="project-content">
+                        <h3>北京中国府</h3>
+                        <p>📍 丰台区·西南四环内</p>
+                        <p>📐 185-240㎡平层 | 450-590㎡叠拼</p>
+                        <p>🏷️ 1550万-3200万起</p>
+                        <p>📚 北京小学、首经贸附小、北京十二中</p>
+                        <p>🏢 葛洲坝地产 | 葛洲坝物业</p>
+                        <div class="project-tags">
+                            <span class="project-tag">科技大宅</span>
+                            <span class="project-tag">恒温恒湿</span>
+                            <span class="project-tag">4000㎡会所</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="fengtai">
+                    <div class="project-image">🌄</div>
+                    <div class="project-content">
+                        <h3>西山金茂府</h3>
+                        <p>📍 丰台区·西南五环外</p>
+                        <p>📐 160㎡ 洋房 四居</p>
+                        <p>🏷️ 660-690万</p>
+                        <p>📚 长辛店小学、丰台一小</p>
+                        <p>🏢 中国金茂 | 金茂</p>
+                        <div class="project-tags">
+                            <span class="project-tag">低密洋房</span>
+                            <span class="project-tag">科技精装</span>
+                            <span class="project-tag">金茂府系</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="fengtai">
+                    <div class="project-image">🏰</div>
+                    <div class="project-content">
+                        <h3>泰禾西府大院</h3>
+                        <p>📍 丰台区·三环</p>
+                        <p>📐 260㎡、上跃、下跃</p>
+                        <p>🏷️ 3000-3800万</p>
+                        <p>📚 中关村三小</p>
+                        <p>🏢 泰禾 | 泰禾</p>
+                        <div class="project-tags">
+                            <span class="project-tag">三环豪宅</span>
+                            <span class="project-tag">大平层</span>
+                            <span class="project-tag">现房</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="fengtai">
+                    <div class="project-image">🏡</div>
+                    <div class="project-content">
+                        <h3>懋源煜泽台</h3>
+                        <p>📍 丰台区·西三环</p>
+                        <p>📐 165-230㎡ 4-5+1居</p>
+                        <p>🏷️ 1700万-2700万</p>
+                        <p>📚 丰台一小、丰台五小、北京十二中</p>
+                        <p>🏢 懋源 | 懋源</p>
+                        <div class="project-tags">
+                            <span class="project-tag">内城核心</span>
+                            <span class="project-tag">豪装大平层</span>
+                            <span class="project-tag">2025年8月交房</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="fengtai">
+                    <div class="project-image">🏢</div>
+                    <div class="project-content">
+                        <h3>端礼著</h3>
+                        <p>📍 丰台区·西南二环·丽泽商务区</p>
+                        <p>📐 130-180㎡ 3-4居</p>
+                        <p>🏷️ 1460万-2020万</p>
+                        <p>📚 丽泽国际学校</p>
+                        <p>🏢 首开+建工+中海 | 中海物业</p>
+                        <div class="project-tags">
+                            <span class="project-tag">丽泽核心区</span>
+                            <span class="project-tag">唯一新建商品房</span>
+                            <span class="project-tag">精装</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="fengtai">
+                    <div class="project-image">🏙️</div>
+                    <div class="project-content">
+                        <h3>君礼著</h3>
+                        <p>📍 丰台区·西南三环</p>
+                        <p>📐 125-165㎡ 3-4居</p>
+                        <p>🏷️ 1000万-1750万</p>
+                        <p>📚 北京十二中、丰台五小、丽泽国际学校</p>
+                        <p>🏢 首开 | 中海</p>
+                        <div class="project-tags">
+                            <span class="project-tag">三环沿线</span>
+                            <span class="project-tag">丰台站TOD</span>
+                            <span class="project-tag">价格倒挂</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="fengtai">
+                    <div class="project-image">💎</div>
+                    <div class="project-content">
+                        <h3>北京瑞府</h3>
+                        <p>📍 丰台区·西南二环·丽泽商务区南</p>
+                        <p>📐 155-188㎡ 4居</p>
+                        <p>🏷️ 1500万-1850万</p>
+                        <p>📚 纪家庙小学、丰台五小</p>
+                        <p>🏢 华润 | 华润</p>
+                        <div class="project-tags">
+                            <span class="project-tag">丽泽金融街</span>
+                            <span class="project-tag">价格倒挂</span>
+                            <span class="project-tag">封闭式社区</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="fengtai">
+                    <div class="project-image">🌟</div>
+                    <div class="project-content">
+                        <h3>北京悦府</h3>
+                        <p>📍 丰台区·南二环·右安门前</p>
+                        <p>📐 134-196㎡ 3-4居</p>
+                        <p>🏷️ 1500万-1750万</p>
+                        <p>📚 北师大实验中学丰台学校</p>
+                        <p>🏢 华润 | 华润</p>
+                        <div class="project-tags">
+                            <span class="project-tag">二环核心</span>
+                            <span class="project-tag">无共有产权</span>
+                            <span class="project-tag">四叶草户型</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="fengtai">
+                    <div class="project-image">🏛️</div>
+                    <div class="project-content">
+                        <h3>首开璞瑅隐园</h3>
+                        <p>📍 丰台区·南二环·方庄</p>
+                        <p>📐 147-214㎡ 4居</p>
+                        <p>🏷️ 1600万-2300万</p>
+                        <p>📚 红黄蓝幼儿园、18中璞瑅学校</p>
+                        <p>🏢 首开 | 首开</p>
+                        <div class="project-tags">
+                            <span class="project-tag">二环地段</span>
+                            <span class="project-tag">低密洋房</span>
+                            <span class="project-tag">九年一贯制</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="fengtai">
+                    <div class="project-image">🏪</div>
+                    <div class="project-content">
+                        <h3>中海丰和叁號</h3>
+                        <p>📍 丰台区·四环·郭公庄</p>
+                        <p>📐 168-262㎡ 4居</p>
+                        <p>🏷️ 1500万-2500万</p>
+                        <p>📚 丰台八中附小、北京十二中</p>
+                        <p>🏢 中海 | 中海</p>
+                        <div class="project-tags">
+                            <span class="project-tag">8层洋房</span>
+                            <span class="project-tag">88%得房率</span>
+                            <span class="project-tag">价格倒挂</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="fengtai">
+                    <div class="project-image">🏢</div>
+                    <div class="project-content">
+                        <h3>中建云境</h3>
+                        <p>📍 丰台区·西南四环·郭公庄</p>
+                        <p>📐 109-192㎡ 3-4居</p>
+                        <p>🏷️ 820万-1700万</p>
+                        <p>📚 北京第五实验学校、丰台八中</p>
+                        <p>🏢 中建八局 | 东孚物业</p>
+                        <div class="project-tags">
+                            <span class="project-tag">低密洋房</span>
+                            <span class="project-tag">超高得房率</span>
+                            <span class="project-tag">地铁300米</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 朝阳区项目 -->
+                <div class="project-card" data-area="chaoyang">
+                    <div class="project-image">🌃</div>
+                    <div class="project-content">
+                        <h3>尊悦光华</h3>
+                        <p>📍 朝阳区·东三环内·国贸</p>
+                        <p>📐 135-171㎡ 3居</p>
+                        <p>🏷️ 1350万-2650万</p>
+                        <p>📚 清华附小、日坛中学本部</p>
+                        <p>🏢 北京盛华夏 | 高力物业</p>
+                        <div class="project-tags">
+                            <span class="project-tag">外销</span>
+                            <span class="project-tag">国贸核心</span>
+                            <span class="project-tag">现房</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="chaoyang">
+                    <div class="project-image">🏛️</div>
+                    <div class="project-content">
+                        <h3>丽都壹号峯境</h3>
+                        <p>📍 朝阳区·东北四环·将台路</p>
+                        <p>📐 186㎡ 3/4居</p>
+                        <p>🏷️ 1199万-1450万</p>
+                        <p>📚 将府实验学校、教研附小附中</p>
+                        <p>🏢 北京将台房地产 | 西国贸大物业</p>
+                        <div class="project-tags">
+                            <span class="project-tag">外销</span>
+                            <span class="project-tag">798艺术区</span>
+                            <span class="project-tag">现房</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="chaoyang">
+                    <div class="project-image">🏙️</div>
+                    <div class="project-content">
+                        <h3>朝阳壹号</h3>
+                        <p>📍 朝阳区·东四环外·焦化厂</p>
+                        <p>📐 110-170㎡ 三居四居</p>
+                        <p>🏷️ 790万-1250万</p>
+                        <p>📚 朝阳区实验小学、五中双合分校</p>
+                        <p>🏢 五矿+融创+城建 | 城建物业</p>
+                        <div class="project-tags">
+                            <span class="project-tag">四环稀缺</span>
+                            <span class="project-tag">7年首次供地</span>
+                            <span class="project-tag">国企</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="chaoyang">
+                    <div class="project-image">🌟</div>
+                    <div class="project-content">
+                        <h3>保利锦上</h3>
+                        <p>📍 朝阳区·东四环外·化工路</p>
+                        <p>📐 67-170㎡ 2-4居</p>
+                        <p>🏷️ 430万-1250万</p>
+                        <p>📚 十一学校、朝阳区实验小学</p>
+                        <p>🏢 保利发展 | 保利</p>
+                        <div class="project-tags">
+                            <span class="project-tag">名校十一学校</span>
+                            <span class="project-tag">四环稀缺</span>
+                            <span class="project-tag">精装</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="chaoyang">
+                    <div class="project-image">🌊</div>
+                    <div class="project-content">
+                        <h3>东直门8号</h3>
+                        <p>📍 朝阳区·2-3环·东直门外</p>
+                        <p>📐 123-288㎡ 2-4居</p>
+                        <p>🏷️ 2300万-6500万</p>
+                        <p>📚 清华附中附小</p>
+                        <p>🏢 莱福置业 | 碧朗湾</p>
+                        <div class="project-tags">
+                            <span class="project-tag">外销</span>
+                            <span class="project-tag">东直门护城河</span>
+                            <span class="project-tag">三面环水</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="chaoyang">
+                    <div class="project-image">🌿</div>
+                    <div class="project-content">
+                        <h3>绿城沁园</h3>
+                        <p>📍 朝阳区·豆各庄·7号线黄厂</p>
+                        <p>📐 82-149㎡ 2-4居</p>
+                        <p>🏷️ 470万-1000万</p>
+                        <p>📚 豆各庄小学、171中学、芳草地</p>
+                        <p>🏢 绿城 | 绿城</p>
+                        <div class="project-tags">
+                            <span class="project-tag">绿城品质</span>
+                            <span class="project-tag">地铁200米</span>
+                            <span class="project-tag">精装交付</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="chaoyang">
+                    <div class="project-image">🏢</div>
+                    <div class="project-content">
+                        <h3>龙樾合玺</h3>
+                        <p>📍 朝阳区·北五环外</p>
+                        <p>📐 125-175㎡ 4居</p>
+                        <p>🏷️ 790万-1300万</p>
+                        <p>📚 陈经纶中学望京分校、第八十中学</p>
+                        <p>🏢 招商+城建 | 招商积余</p>
+                        <div class="project-tags">
+                            <span class="project-tag">望京商圈</span>
+                            <span class="project-tag">价格倒挂</span>
+                            <span class="project-tag">精装现房</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="chaoyang">
+                    <div class="project-image">🌄</div>
+                    <div class="project-content">
+                        <h3>傲云</h3>
+                        <p>📍 朝阳区·北五环·孙河</p>
+                        <p>📐 平层240-250㎡ | 叠拼320-400㎡</p>
+                        <p>🏷️ 1790万起</p>
+                        <p>📚 国际教育资源+公立教育</p>
+                        <p>🏢 天恒+恒基 | 天恒物业</p>
+                        <div class="project-tags">
+                            <span class="project-tag">外销</span>
+                            <span class="project-tag">孙河别墅区</span>
+                            <span class="project-tag">现房</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="chaoyang">
+                    <div class="project-image">🌅</div>
+                    <div class="project-content">
+                        <h3>青云上府</h3>
+                        <p>📍 朝阳区·北五环·金盏别墅区</p>
+                        <p>📐 163-320㎡ 3-4居</p>
+                        <p>🏷️ 750万-1200万</p>
+                        <p>📚 首师大朝阳金盏、北京八十中</p>
+                        <p>🏢 首开+卓越+旭辉 | 卓越物业</p>
+                        <div class="project-tags">
+                            <span class="project-tag">低密洋房</span>
+                            <span class="project-tag">望京7km</span>
+                            <span class="project-tag">现房</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="chaoyang">
+                    <div class="project-image">🌸</div>
+                    <div class="project-content">
+                        <h3>晓风印月</h3>
+                        <p>📍 朝阳区·崔各庄</p>
+                        <p>📐 117-169㎡ 3-4居</p>
+                        <p>🏷️ 720万-1300万</p>
+                        <p>📚 八十中小学和中学</p>
+                        <p>🏢 绿城中国 | 绿城物业</p>
+                        <div class="project-tags">
+                            <span class="project-tag">外销</span>
+                            <span class="project-tag">户型方正</span>
+                            <span class="project-tag">精装交付</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="chaoyang">
+                    <div class="project-image">🏛️</div>
+                    <div class="project-content">
+                        <h3>缦合北京</h3>
+                        <p>📍 朝阳区·东北三环外·霄云路8号</p>
+                        <p>📐 450-900㎡ 3-7居</p>
+                        <p>🏷️ 6000万-3亿</p>
+                        <p>📚 朝阳师范附小、八十中枣营分校</p>
+                        <p>🏢 合生创展+安缦 | 安缦物业</p>
+                        <div class="project-tags">
+                            <span class="project-tag">朝阳公园内唯一住宅</span>
+                            <span class="project-tag">安缦作品</span>
+                            <span class="project-tag">现房</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="chaoyang">
+                    <div class="project-image">🌟</div>
+                    <div class="project-content">
+                        <h3>北京天誉</h3>
+                        <p>📍 朝阳区·东三环·分钟寺</p>
+                        <p>📐 150-220㎡ 3-4居</p>
+                        <p>🏷️ 1700万-3200万</p>
+                        <p>📚 首师大附中、首师大附小</p>
+                        <p>🏢 华润置地 | 华润物业</p>
+                        <div class="project-tags">
+                            <span class="project-tag">东三环核心</span>
+                            <span class="project-tag">CBD国际生态区</span>
+                            <span class="project-tag">现房</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="chaoyang">
+                    <div class="project-image">🏙️</div>
+                    <div class="project-content">
+                        <h3>东誉府</h3>
+                        <p>📍 朝阳区·东三环·大郊亭</p>
+                        <p>📐 102-160㎡ 3-4居</p>
+                        <p>🏷️ 1050万-1750万</p>
+                        <p>📚 陈经纶帝景学校</p>
+                        <p>🏢 中能建 | 中能建生活服务</p>
+                        <div class="project-tags">
+                            <span class="project-tag">大望路板块</span>
+                            <span class="project-tag">纯现房</span>
+                            <span class="project-tag">2025年</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="chaoyang">
+                    <div class="project-image">🌲</div>
+                    <div class="project-content">
+                        <h3>金隅昆泰云筑</h3>
+                        <p>📍 朝阳区·四环·十八里店</p>
+                        <p>📐 114-152㎡ 2-4居</p>
+                        <p>🏷️ 824万-1180万</p>
+                        <p>📚 人大附9年</p>
+                        <p>🏢 昆泰+金隅 | 北京金隅物业</p>
+                        <div class="project-tags">
+                            <span class="project-tag">17号线300米</span>
+                            <span class="project-tag">三大公园</span>
+                            <span class="project-tag">超大面宽</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="chaoyang">
+                    <div class="project-image">🏢</div>
+                    <div class="project-content">
+                        <h3>中海朝阳ONE</h3>
+                        <p>📍 朝阳区·四环·十八里店</p>
+                        <p>📐 102-190㎡ 3-4居</p>
+                        <p>🏷️ 750万-1600万</p>
+                        <p>📚 人大附朝阳港分校</p>
+                        <p>🏢 中海 | 中海</p>
+                        <div class="project-tags">
+                            <span class="project-tag">17号线200米</span>
+                            <span class="project-tag">88%-94%得房率</span>
+                            <span class="project-tag">人大附名校</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="chaoyang">
+                    <div class="project-image">🌊</div>
+                    <div class="project-content">
+                        <h3>中海萬吉玖序</h3>
+                        <p>📍 朝阳区·东四环·酒仙桥</p>
+                        <p>📐 168-576㎡ 4-5居</p>
+                        <p>🏷️ 1700万-7780万</p>
+                        <p>📚 清华附九年一贯制</p>
+                        <p>🏢 中海 | 中海</p>
+                        <div class="project-tags">
+                            <span class="project-tag">朝阳公园第四代豪宅</span>
+                            <span class="project-tag">89%-93%得房率</span>
+                            <span class="project-tag">亮马河滨水</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 顺义区项目 -->
+                <div class="project-card" data-area="shunyi">
+                    <div class="project-image">🏡</div>
+                    <div class="project-content">
+                        <h3>诺德阅墅</h3>
+                        <p>📍 顺义区·东北五环外·后沙峪</p>
+                        <p>📐 上叠235㎡ | 下叠300㎡</p>
+                        <p>🏷️ 950万-1150万起</p>
+                        <p>📚 ISB、鼎石、海嘉、新英才</p>
+                        <p>🏢 中国中铁置业 | 中铁&慧生活</p>
+                        <div class="project-tags">
+                            <span class="project-tag">外销</span>
+                            <span class="project-tag">中央别墅区</span>
+                            <span class="project-tag">纯低密现墅</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="shunyi">
+                    <div class="project-image">🏛️</div>
+                    <div class="project-content">
+                        <h3>璟上兰园</h3>
+                        <p>📍 顺义区·东北五环外·火寺路</p>
+                        <p>📐 105-152㎡ 3-4居</p>
+                        <p>🏷️ 480万-780万</p>
+                        <p>📚 实验二小顺义分校、鼎石、海嘉</p>
+                        <p>🏢 央企能建城发+厦门国贸 | 国贸物业</p>
+                        <div class="project-tags">
+                            <span class="project-tag">精装洋房</span>
+                            <span class="project-tag">地铁房</span>
+                            <span class="project-tag">央企开发</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="shunyi">
+                    <div class="project-image">🌿</div>
+                    <div class="project-content">
+                        <h3>懋源璟橒</h3>
+                        <p>📍 顺义区·天竺别墅区</p>
+                        <p>📐 290-820平 4-5居</p>
+                        <p>🏷️ 2100万-4000万</p>
+                        <p>📚 德威英国国际学校、ISB、青苗</p>
+                        <p>🏢 懋源鸿竺 | 懋源鸿竺</p>
+                        <div class="project-tags">
+                            <span class="project-tag">有商品房</span>
+                            <span class="project-tag">天竺收官之作</span>
+                            <span class="project-tag">精装交付</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="shunyi">
+                    <div class="project-image">🏞️</div>
+                    <div class="project-content">
+                        <h3>懋源云纪</h3>
+                        <p>📍 顺义区·后沙峪·温榆河公园</p>
+                        <p>📐 220-780平 4-5居</p>
+                        <p>🏷️ 1400万-6500万</p>
+                        <p>📚 国际学校云集</p>
+                        <p>🏢 懋源地产 | 懋源鸿竺</p>
+                        <div class="project-tags">
+                            <span class="project-tag">公园里的低密别墅</span>
+                            <span class="project-tag">空中庭院</span>
+                            <span class="project-tag">第四代住宅</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="shunyi">
+                    <div class="project-image">💎</div>
+                    <div class="project-content">
+                        <h3>华润润园</h3>
+                        <p>📍 顺义区·后沙峪·温榆河公园</p>
+                        <p>📐 271-990平</p>
+                        <p>🏷️ 1650万-6300万</p>
+                        <p>📚 16家国际学校</p>
+                        <p>🏢 华润置地 | 万象</p>
+                        <div class="project-tags">
+                            <span class="project-tag">中央别墅区核心</span>
+                            <span class="project-tag">超高得房率</span>
+                            <span class="project-tag">国际学校首选</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 昌平区项目 -->
+                <div class="project-card" data-area="changping">
+                    <div class="project-image">🏛️</div>
+                    <div class="project-content">
+                        <h3>北京国贤府</h3>
+                        <p>📍 昌平区·北五环外·定泗路</p>
+                        <p>📐 100-180㎡ 3-4居</p>
+                        <p>🏷️ 550万-1400万</p>
+                        <p>📚 北师大、北京十一学校</p>
+                        <p>🏢 中建智地+未来科学城 | 中建智地物业</p>
+                        <div class="project-tags">
+                            <span class="project-tag">可以外销</span>
+                            <span class="project-tag">1.3容积率</span>
+                            <span class="project-tag">90%以上得房率</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="changping">
+                    <div class="project-image">🌲</div>
+                    <div class="project-content">
+                        <h3>御汤山</h3>
+                        <p>📍 昌平区·6环</p>
+                        <p>📐 300-580㎡ 独栋 4-5居</p>
+                        <p>🏷️ 1730万-5800万</p>
+                        <p>📚 力迈中美、温莎双语、汇佳国际</p>
+                        <p>🏢 北京天时 | 伟联物业</p>
+                        <div class="project-tags">
+                            <span class="project-tag">纯独栋</span>
+                            <span class="project-tag">现房</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 门头沟区项目 -->
+                <div class="project-card" data-area="mentougou">
+                    <div class="project-image">🏔️</div>
+                    <div class="project-content">
+                        <h3>檀谷</h3>
+                        <p>📍 门头沟区·西六环外·潭柘寺</p>
+                        <p>📐 124-245㎡ 3-4居</p>
+                        <p>🏷️ 500万-1400万</p>
+                        <p>📚 清华附中15年一贯制</p>
+                        <p>🏢 京投 | 高力国际</p>
+                        <div class="project-tags">
+                            <span class="project-tag">镇域级规划</span>
+                            <span class="project-tag">北京阿那亚</span>
+                            <span class="project-tag">现房</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="mentougou">
+                    <div class="project-image">🏯</div>
+                    <div class="project-content">
+                        <h3>泷悦玖宸</h3>
+                        <p>📍 门头沟区·六环外·永定镇</p>
+                        <p>📐 上叠350㎡ | 下叠400㎡</p>
+                        <p>🏷️ 790万-1200万</p>
+                        <p>📚 人大附小京西分校、大峪中学</p>
+                        <p>🏢 电建 | 电建物业</p>
+                        <div class="project-tags">
+                            <span class="project-tag">1.05容积率</span>
+                            <span class="project-tag">半山别墅</span>
+                            <span class="project-tag">台地建筑</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="mentougou">
+                    <div class="project-image">🌟</div>
+                    <div class="project-content">
+                        <h3>长安华曦府金安</h3>
+                        <p>📍 门头沟区·六环外·上岸地铁</p>
+                        <p>📐 78-118㎡ 3-4居</p>
+                        <p>🏷️ 350万-580万</p>
+                        <p>📚 北京八中京西附小、大峪中学</p>
+                        <p>🏢 电建 | 电建物业</p>
+                        <div class="project-tags">
+                            <span class="project-tag">百米地铁盘</span>
+                            <span class="project-tag">超高使用率</span>
+                            <span class="project-tag">长安街上好房子</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 石景山区项目 -->
+                <div class="project-card" data-area="shijingshan">
+                    <div class="project-image">🏔️</div>
+                    <div class="project-content">
+                        <h3>西山云庐</h3>
+                        <p>📍 石景山区·地铁1号线福寿岭</p>
+                        <p>📐 上叠300㎡ | 下叠410-420㎡</p>
+                        <p>🏷️ 1860万-2400万</p>
+                        <p>📚 北大附小附中石景山校区</p>
+                        <p>🏢 绿城 | 绿城</p>
+                        <div class="project-tags">
+                            <span class="project-tag">叠拼</span>
+                            <span class="project-tag">2024年底交房</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="shijingshan">
+                    <div class="project-image">🏙️</div>
+                    <div class="project-content">
+                        <h3>越秀天玥</h3>
+                        <p>📍 石景山区·苹果园主城区</p>
+                        <p>📐 81-134㎡ 3-4居</p>
+                        <p>🏷️ 605万-1000万</p>
+                        <p>📚 苹果园二小、十一学校</p>
+                        <p>🏢 越秀</p>
+                        <div class="project-tags">
+                            <span class="project-tag">1号线6号线</span>
+                            <span class="project-tag">配套完善</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="shijingshan">
+                    <div class="project-image">🏢</div>
+                    <div class="project-content">
+                        <h3>中海学府里</h3>
+                        <p>📍 石景山区·西五环外</p>
+                        <p>📐 89-127㎡ 3-4居</p>
+                        <p>🏷️ 650万-960万</p>
+                        <p>📚 171学校、爱乐实验小学</p>
+                        <p>🏢 中海 | 中海物业</p>
+                        <div class="project-tags">
+                            <span class="project-tag">有外销</span>
+                            <span class="project-tag">外置阳台</span>
+                            <span class="project-tag">精装</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="shijingshan">
+                    <div class="project-image">🌟</div>
+                    <div class="project-content">
+                        <h3>中海寰宇天下天镜</h3>
+                        <p>📍 石景山区·西五环外·金安桥</p>
+                        <p>📐 119-196㎡ 3-4居</p>
+                        <p>🏷️ 均价7.5-7.6万</p>
+                        <p>📚 十一学校石景山中学、古城二小</p>
+                        <p>🏢 中海 | 中海物业</p>
+                        <div class="project-tags">
+                            <span class="project-tag">有外销</span>
+                            <span class="project-tag">四轨交汇</span>
+                            <span class="project-tag">精装</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="shijingshan">
+                    <div class="project-image">🏭</div>
+                    <div class="project-content">
+                        <h3>元玺</h3>
+                        <p>📍 石景山区·西五环外·首钢园</p>
+                        <p>📐 120-196㎡ 3-4居</p>
+                        <p>🏷️ 860万-1650万</p>
+                        <p>📚 十一学校、自建国际双语</p>
+                        <p>🏢 首钢+香港置地+招商 | 自持物业</p>
+                        <div class="project-tags">
+                            <span class="project-tag">有外销</span>
+                            <span class="project-tag">首钢园内唯一住宅</span>
+                            <span class="project-tag">双地铁</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="shijingshan">
+                    <div class="project-image">🏛️</div>
+                    <div class="project-content">
+                        <h3>长安玖章</h3>
+                        <p>📍 石景山区·古城地铁口</p>
+                        <p>📐 183-236㎡ 4居</p>
+                        <p>🏷️ 1400万-1850万</p>
+                        <p>📚 古城小学、古城二小、十一学校</p>
+                        <p>🏢 中海 | 中海物业</p>
+                        <div class="project-tags">
+                            <span class="project-tag">有外销</span>
+                            <span class="project-tag">京西唯一豪宅</span>
+                            <span class="project-tag">90+%得房率</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="shijingshan">
+                    <div class="project-image">🌄</div>
+                    <div class="project-content">
+                        <h3">长安悦玺</h3>
+                        <p>📍 石景山区·西四环外·衙门口</p>
+                        <p>📐 97-173㎡ 3-4居</p>
+                        <p>🏷️ 579万-2000万</p>
+                        <p>📚 171中学、石景山实验幼儿园</p>
+                        <p>🏢 招商+城建+陕建+融创 | 招商</p>
+                        <div class="project-tags">
+                            <span class="project-tag">有外销</span>
+                            <span class="project-tag">M11号线500米</span>
+                            <span class="project-tag">东城名校171中学</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 大兴区项目 -->
+                <div class="project-card" data-area="daxing">
+                    <div class="project-image">🏆</div>
+                    <div class="project-content">
+                        <h3>招商玺</h3>
+                        <p>📍 大兴区·五环·亦庄经济开发区</p>
+                        <p>📐 143-438㎡ 4-5居</p>
+                        <p>🏷️ 1100万-3636万起</p>
+                        <p>📚 北京二中+人大附+亦庄实验</p>
+                        <p>🏢 招商蛇口 | 招商物业</p>
+                        <div class="project-tags">
+                            <span class="project-tag">有外销</span>
+                            <span class="project-tag">2023地王</span>
+                            <span class="project-tag">玺系顶序</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 通州区项目 -->
+                <div class="project-card" data-area="tongzhou">
+                    <div class="project-image">🏰</div>
+                    <div class="project-content">
+                        <h3>格拉斯小镇</h3>
+                        <p>📍 通州区·京平高速半壁店</p>
+                        <p>📐 叠拼、合院、联排 4-6居</p>
+                        <p>🏷️ 1380万-3900万</p>
+                        <p>📚 德闳国际学校、爱迪、德威</p>
+                        <p>🏢 中国绿发 | 鲁能物业</p>
+                        <div class="project-tags">
+                            <span class="project-tag">有商品房</span>
+                            <span class="project-tag">现房交付即下本</span>
+                            <span class="project-tag">纯粹墅区</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-area="tongzhou">
+                    <div class="project-image">🌊</div>
+                    <div class="project-content">
+                        <h3>缦云ONE</h3>
+                        <p>📍 通州区·运河商务中心</p>
+                        <p>📐 199-341㎡ 4-5居</p>
+                        <p>🏷️ 1420万-2600万</p>
+                        <p>📚 史家小学通州分校、人大附中</p>
+                        <p>🏢 北京信开 | 合生缦品牌物业</p>
+                        <div class="project-tags">
+                            <span class="project-tag">缦品牌</span>
+                            <span class="project-tag">新北京CBD</span>
+                            <span class="project-tag">低密洋房</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">关于我</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>李青云 - 资深房产经纪人</h3>
+                    <p>我是一名专注于北京房地产市场的专业经纪人，拥有多年的行业经验，深耕新房、二手房、中高端物业及租赁业务。</p>
+                    <p>🏆 专业优势：</p>
+                    <p>• 熟悉北京各区域楼盘情况及价格走势</p>
+                    <p>• 为客户提供专业的购房建议和市场分析</p>
+                    <p>• 全程一对一服务，贴心周到</p>
+                    <p>• 诚信为本，客户利益至上</p>
+                    <p>无论您是首次置业、改善居住、投资房产，还是寻找合适的租赁房源，我都会竭诚为您服务，帮您找到理想的住所。</p>
+                </div>
+                <div class="about-image">
+                    <div class="feature-icon">👨‍💼</div>
+                    <h3 style="text-align: center;">期待为您服务</h3>
+                    <p style="text-align: center;">用心服务每一位客户</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">联系方式</h2>
+            <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+                <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
+                    <div style="margin-bottom: 2rem;">
+                        <h3 style="color: #1a365d; margin-bottom: 1rem; font-size: 1.5rem;">李青云</h3>
+                        <p style="color: #666; margin-bottom: 1.5rem;">北京资深房产经纪人</p>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem; padding: 1rem; background: #f7fafc; border-radius: 8px;">
+                        <p style="margin: 0.5rem 0; font-size: 1.2rem;">
+                            <span style="margin-right: 10px;">📞</span>
+                            <strong>电话：</strong><a href="tel:15601359305" style="color: #1a365d; text-decoration: none;">15601359305</a>
+                        </p>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem; padding: 1rem; background: #f7fafc; border-radius: 8px;">
+                        <p style="margin: 0.5rem 0; font-size: 1.2rem;">
+                            <span style="margin-right: 10px;">💬</span>
+                            <strong>微信：</strong><span style="color: #1a365d;">15601359305</span>
+                        </p>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem; padding: 1rem; background: #f7fafc; border-radius: 8px;">
+                        <p style="margin: 0.5rem 0; font-size: 1.2rem;">
+                            <span style="margin-right: 10px;">🏢</span>
+                            <strong>服务区域：</strong><span style="color: #1a365d;">北京市全域</span>
+                        </p>
+                    </div>
+
+                    <a href="tel:15601359305" class="btn btn-primary" style="display: inline-block; text-align: center;">
+                        立即拨打电话
+                    </a>
+
+                    <p style="margin-top: 1.5rem; color: #666; font-size: 0.95rem;">
+                        * 咨询时间：周一至周日 9:00-21:00
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <a href="tel:15601359305" class="floating-phone">
+        📞 15601359305
+    </a>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 云屿探房 · 专业房产服务 · 北京</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">电话/微信：15601359305</p>
+        </div>
+    </footer>
+
+    <script>
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 区域筛选功能
+        function filterProjects(area) {
+            const cards = document.querySelectorAll('.project-card');
+            const buttons = document.querySelectorAll('.area-btn');
+            
+            // 更新按钮状态
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.includes(getAreaName(area)) || (area === 'all' && btn.textContent === '全部')) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // 筛选项目卡片
+            cards.forEach(card => {
+                if (area === 'all') {
+                    card.style.display = 'block';
+                    card.style.animation = 'fadeIn 0.5s ease-in';
+                } else {
+                    if (card.dataset.area === area) {
+                        card.style.display = 'block';
+                        card.style.animation = 'fadeIn 0.5s ease-in';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        function getAreaName(area) {
+            const areaNames = {
+                'dongcheng': '东城',
+                'xicheng': '西城',
+                'fengtai': '丰台',
+                'chaoyang': '朝阳',
+                'shunyi': '顺义',
+                'changping': '昌平',
+                'mentougou': '门头沟',
+                'shijingshan': '石景山',
+                'daxing': '大兴',
+                'tongzhou': '通州'
+            };
+            return areaNames[area] || '';
+        }
+    </script>
+</body>
+</html>
